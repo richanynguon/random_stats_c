@@ -21,19 +21,6 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/**
- * @brief Prints data values
- *
- * Given an array of data and a length, prints the array to the screen
- *
- * @param data An unsigned char pointer to an array of unsigned char data types
- * @param size Int datatype representing the amount of int elements in data array
- *
- * @return Void value, prints out array values
- */
-
-void print_array (unsigned char *data, int size);
-
 
 /**
  * @brief Returns median Value of dataset
@@ -46,7 +33,7 @@ void print_array (unsigned char *data, int size);
  * @return unsigned char representing the median value of the data array
  */
 
-char calc_median(unsigned char *data, int size);
+unsigned char calc_median(unsigned char *data, int size);
 
 /**
  * @brief Returns mean of dataset
@@ -56,10 +43,10 @@ char calc_median(unsigned char *data, int size);
  * @param data An unsigned char pointer to an array of unsigned char data types
  * @param size Int datatype representing the amount of int elements in data array
  *
- * @return double datatype representing mean value of the data array
+ * @return unsigned char datatype representing mean value of the data array
  */
 
-double calc_mean(unsigned char *data, int size);
+unsigned char calc_mean(unsigned char *data, int size);
 
 
 /**
@@ -73,7 +60,7 @@ double calc_mean(unsigned char *data, int size);
  * @return unsigned char representing maximum value of data array
  */
 
-char calc_max(unsigned char *data, int size);
+unsigned char calc_max(unsigned char *data, int size);
 
 
 /**
@@ -103,7 +90,7 @@ unsigned char calc_min(unsigned char *data, int size);
  * @return char returns a element location where element should be inserted
  */
 
-char binary_search(unsigned char *data, unsigned char *element, signed char *high, unsigned char low);
+unsigned char binary_search(unsigned char *data, unsigned char *element, signed char *high, unsigned char low);
 
 
 /**

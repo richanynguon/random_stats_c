@@ -18,31 +18,31 @@ TARGET=statsmachine
 LINKER_FILE=msp432p401r.lds
 
 # Initial Creations of Linker Flags and Compiler Flags
-LDFLAGS=-Wl, -Map=$(TARGET).map
-CFLAGS=-Wall -Werror -g -O0 -std=c99 $(INCLUDES)
+LDFLAGS=-Wl,-Map=$(TARGET).map
+CFLAGS= -Wall -Werror -g -O0 -std=c99 $(INCLUDES)
 
 # Platform Override
 # ifeq = if equipped
 ifeq ($(PLATFORM), MSP432)
 
 # Platform Override Specs
-CPU=cortex-m4
-ARCH=thump
-SPECS=nosys.specs
+CPU = cortex-m4
+ARCH = thumb
+SPECS = nosys.specs
 
 # Platform Override Specific Specs Flags
-CPP=-mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -march=armv7e-m -DMSP432 -mfloat-abi=hard -mfpu=fpv4-sp-d16
-LDFLAGS+=-T $(LINKER_FILE)
+LDFLAGS += -T $(LINKER_FILE)
+CPP = -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -march=armv7e-m  -DMSP432 -mfloat-abi=hard -mfpu=fpv4-sp-d16
 
 # Platform Override Compiler and Linker
-CC=arm-none-eabi-gcc
-LD=arm-none-eabi-ld
+CC = arm-none-eabi-gcc
+LD = arm-none-eabi-ld
 
 else
 # Default Compiler
-CC=gcc
+CC = gcc
 # Default Specs Flag
-CPP=-DHOST
+CPP = -DHOST
 
 endif
 
@@ -68,4 +68,4 @@ clean:
 
 # ASM to executable also generating a map
 $(TARGET).out: $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET).out $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS)  -o $(TARGET).out $(OBJS)
