@@ -106,7 +106,20 @@ void sort_data(unsigned char *data, int size);
  * @return A unsigned char pointer to an array, prints out minimum, maximum, mean, and median. In this case an unsigned float or int.
  */
 
-unsigned char * print_statistics (unsigned char *data, int size);
+unsigned char * calc_statistics (unsigned char *data, int size);
+
+/**
+ * @brief Prints minimum, maximum, mean and median
+ *
+ * A function that prints statistics of an array including minimum, maximum, mean, and median.
+ *
+ * @param data An unsigned char pointer to an array of unsigned char data types
+ * @param size Int datatype representing the amount of int elements in data array
+ *
+ * @return Void, prints out minimum, maximum, mean, and median. In this case an unsigned float or int.
+ */
+
+void print_statistics ();
 
 
 

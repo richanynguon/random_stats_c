@@ -46,11 +46,18 @@ CPP = -DHOST
 
 endif
 
+ifeq ($(DEBUG), TRUE)
+CFLAGS+=-DVERBOSE
+endif
+
 # Depending on conditional equipment will add on appropriate flags
+
 CFLAGS+=$(CPP) $(SOURCES)
 
 # Generates list of object variables based of .c files
 OBJS:=$(SRC:.c=.o)
+
+
 
 # .PHONY explicitly tell Make they're not associated with files but
 # would like to execute this specific command
@@ -59,7 +66,7 @@ build: $(TARGET).out
  
 .PHONY: clean
 clean:
-	rm -f $(OBjS) $(TARGET).out $(TARGET).map
+	rm -f $(OBJS) $(TARGET).out $(TARGET).map
 
 # % Pattern Matcher >> ThisFile.o: ThisFile.c
 # C to ASM Files

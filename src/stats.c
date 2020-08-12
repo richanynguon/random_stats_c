@@ -8,7 +8,7 @@
  * @date 05 08 2020
  *
  */
-#include <stdio.h>
+#include "platform.h"
 #include "stats.h"
 #define SIZE (40)
 
@@ -104,7 +104,7 @@ unsigned char * calc_statistics (unsigned char *data, int size){
 };
 
 
-int main(){
+void print_statistics(){
     unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
@@ -114,7 +114,10 @@ int main(){
     unsigned char * stats_ptr = calc_statistics(test, SIZE);
     for(i = 0; i < 4; ++i){
       printf("%c", *(stats_ptr+i));
-    }
+    };
     
-    return 0;
 };
+
+#ifdef DEBUG
+print_statistics()
+#endif
