@@ -8,8 +8,10 @@
  * @date 05 08 2020
  *
  */
+
 #include <stdint.h>
 #include <stddef.h>
+
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
