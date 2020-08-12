@@ -13,11 +13,26 @@
 #define SIZE (40)
 
 
-char calc_median(unsigned char *data, int size){};
+char calc_median(unsigned char *data, int size){
+    unsigned char median_num = *(data+(size/2));
+    return median_num;
+};
 
-double calc_mean(unsigned char *data, int size){};
+double calc_mean(unsigned char *data, int size){
+    int accumluator = 0;
+    int i;
+    double mean;
+    for(i = 0; i < size; ++i){
+        accumluator += (int)*(data+i);
+    };
+    mean = accumluator/size;
+    return mean;
+};
 
-char calc_max(unsigned char *data, int size){};
+char calc_max(unsigned char *data, int size){
+    unsigned char max_num = *(data+(size-1));
+    return max_num;
+};
 
 unsigned char calc_min(unsigned char *data, int size){};
 
