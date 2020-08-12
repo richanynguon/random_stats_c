@@ -34,11 +34,56 @@ char calc_max(unsigned char *data, int size){
     return max_num;
 };
 
-unsigned char calc_min(unsigned char *data, int size){};
+unsigned char calc_min(unsigned char *data, int size){
+    return *data;
+};
 
-char binary_search(unsigned char *data, unsigned char *element, signed char *high, unsigned char low){};
+char binary_search(unsigned char *data, unsigned char *element, signed char *high, unsigned char low){
+    if(*high <= low) 
+      return (*element > *(data+low)) ? (low+1) : low;
+  
+    unsigned char mid = (low+*high)/2;
+    unsigned char one = (unsigned char)1;
+    unsigned char plus_one= mid+one;
+    signed char minus = mid-one ;
+    signed char * minus_one = &minus;
 
-void sort_data(unsigned char *data, int size){};
+    unsigned char mid_element = *(data+mid);
+    if(*element ==  mid_element){ 
+        return plus_one;      
+    } else if(*element > mid_element){
+        return binary_search(data, element, high, plus_one );
+    } else if(*high != (unsigned char)0){
+        return binary_search(data, element, minus_one, low);
+    }else {
+    return (signed char)-1;
+    }
+};
+
+void sort_data(unsigned char *data, int size){
+    int i;
+    unsigned char selected, location;
+    signed char end_range;
+
+    signed char *end_range_ptr;
+    unsigned char *selected_ptr;
+
+    end_range_ptr = &end_range; 
+    selected_ptr = &selected;
+
+    for(i = 1; i < size; ++i){
+        *end_range_ptr= i - 1;
+        *selected_ptr = *(data+i);
+        unsigned char start_range = 0;
+        location = binary_search(data, selected_ptr, end_range_ptr, start_range);
+        
+        while(*end_range_ptr >= location){
+            *(data+*end_range_ptr+1) = *(data+*end_range_ptr);
+            (*end_range_ptr)--;
+        }
+        *(data+*end_range_ptr+1) = *selected_ptr;
+    }
+};
 
 unsigned char * calc_statistics (unsigned char *data, int size){};
 
