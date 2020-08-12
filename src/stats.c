@@ -25,10 +25,10 @@ char binary_search(unsigned char *data, unsigned char *element, signed char *hig
 
 void sort_data(unsigned char *data, int size){};
 
-char * calc_statistics (unsigned char *data, int size){};
+unsigned char * calc_statistics (unsigned char *data, int size){};
 
 
-char * main(){
+unsigned char * main(){
     unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
