@@ -14,6 +14,9 @@ int is_contiguous(uint8_t * dst, size_t length){
     int i;
     int results= 1;
     uint8_t * ptr =  dst;
+    // no need to hold original pointer
+    // you can add to address and it wont
+    // affect the original pointer
     for(i=0; i<length; i++){
         if(*dst != NULL){
             dst++;

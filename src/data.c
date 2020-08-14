@@ -23,10 +23,19 @@ unsigned char place_values_of_integer(int32_t data)
 
 }
 
-unsigned int pow(int x, int y){
-    unsigned int accumulator= 0;
-    unsigned char i=0;
-    for(){}
+unsigned int pow(unsigned int x, unsigned int y){
+    unsigned int accumulator= x;
+    unsigned char i=1;
+    while(i<y)
+    {
+        if(i != 1)
+        {
+            accumulator*=x;
+            i++;
+        }
+        
+    }
+    return accumulator;
 }
 
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
@@ -36,18 +45,18 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
 
     // need to find how long data is 
     unsigned char length = place_values_of_integer(data);
-    // for each element in data modulate with desired base to the power of place value
     unsigned char i = 0;
+    unsigned int 
     while(i<length)
     {
-       data % pow(base,i) / base**i;
-    }
+    // for each element in data modulate with desired base to the power of place value
     // diveded by desired base pow place value
-    // with return value access base_symbols with that number
-    // copy return into a string? and set pointer to the string?
+        unsigned int i_casted = (unsigned int) i;
+        unsigned int converted = data % pow(base,i_casted) / pow(base,i_casted);
+        *(ptr+i) = 
+    }
     // return length of converted data which I assume will be the same?
-    // data % base ** i / base**i 
-
+    return length;
 
     
 };
