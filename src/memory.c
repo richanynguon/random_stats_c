@@ -18,7 +18,7 @@ int is_contiguous(uint8_t * dst, size_t length){
     // you can add to address and it wont
     // affect the original pointer
     for(i=0; i<length; i++){
-        if(*dst != NULL){
+        if(*dst != 0x00){
             dst++;
         }else{
             results=0;
@@ -38,7 +38,7 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
     if(contiguous==1){
         for(i=0; i<length; i++){
             *dst = *src;
-            *src = NULL;
+            *src = 0x00;
             src++;
             dst++;
         }
@@ -47,7 +47,7 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
         return dst;
     }
     else{
-       return_ptr = NULL;
+       return_ptr = 0x00;
        return return_ptr;
     }
 
@@ -59,7 +59,7 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst,  size_t length){
     uint8_t * original_src = src;
     for(i=0; i<length; i++){
         *dst = *src;
-        *src = NULL;
+        *src = 0x00;
         src++;
         dst++;
     }
@@ -109,27 +109,14 @@ uint8_t * my_reverse(uint8_t * src, size_t length){
 int32_t * reserve_words(size_t length){
 // This should take number of words to allocate in dynamic memory
 // All operations need to be performed using pointer arithmetic, not array indexing
-// Should return a pointer to memory if successful, or a Null Pointer if not successful 
-
-    int i;
-    uint8_t * src = &length;
-    uint8_t * dst = src + length;
-    uint8_t * original_src = src;
-    for(i=0; i<length/2; i++){
-        uint8_t temp = *src;
-        *src = *dst;
-        *dst = temp;
-        dst--;
-        src++;
-    }
-    src= original_src;
+// Should return a pointer to memory if successful, or a 0x00 Pointer if not successful 
+    int32_t * src =(int32_t) 0;
     return src;  
 }
 
 void free_words(int32_t * src){
 // Should free a dynamic memory allocation by providing the pointer src to the function
 // All operations need to be performed using pointer arithmetic, not array indexing
-    int i;
-    *src = NULL;
-    return src;  
+    *src = 0x00;
+
 };

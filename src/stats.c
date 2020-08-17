@@ -111,11 +111,23 @@ void print_statistics(){
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
     int i;
+    unsigned char x;
     unsigned char * stats_ptr = calc_statistics(test, SIZE);
     for(i = 0; i < 4; ++i){
-      printf("%c", *(stats_ptr+i));
+      PRINTF("%c", *(stats_ptr+i));
     };
+    x = *stats_ptr;
+    x++;
     
+};
+
+void print_array (unsigned char *data, int size){
+    int i;
+    for(i = 0; i < size; ++i){
+        // unsigned char current = *(data+i);
+        // PRINTF("%c",  current);
+    };
+    PRINTF("%s","\n");
 };
 
 #ifdef DEBUG

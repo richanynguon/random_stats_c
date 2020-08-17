@@ -122,5 +122,19 @@ unsigned char * calc_statistics (unsigned char *data, int size);
 void print_statistics ();
 
 
+/**
+ * @brief Prints data values
+ *
+ * Given an array of data and a length, prints the array to the screen
+ *
+ * @param data An unsigned char pointer to an array of unsigned char data types
+ * @param size Int datatype representing the amount of int elements in data array
+ *
+ * @return Void value, prints out array values
+ */
+
+void print_array (unsigned char *data, int size);
+
+
 
 #endif /* __STATS_H__ */

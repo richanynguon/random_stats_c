@@ -6,7 +6,8 @@
  * @date 12 08 2020
  *
  */
-#ifdef COURSE1
+// #ifdef COURSE1
+#include "course1.h"
 
 int main(){
     course1();
@@ -14,4 +15,4 @@ int main(){
 };
 
 
-#endif
+// #endif
